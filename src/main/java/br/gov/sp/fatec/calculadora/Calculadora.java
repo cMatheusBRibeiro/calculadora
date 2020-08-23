@@ -1,9 +1,9 @@
 package br.gov.sp.fatec.calculadora;
 
 public class Calculadora {
-    private Integer n1, n2;
+    private Double n1, n2;
 
-    public Calculadora(Integer n1, Integer n2)
+    public Calculadora(Double n1, Double n2)
     {
         this.n1 = n1;
         this.n2 = n2;
@@ -11,11 +11,26 @@ public class Calculadora {
 
     public Calculadora()
     {
-        this(1, 1);
+        this(1.0, 1.0);
     }
 
-    public Integer soma()
+    public Double soma()
     {
-        return n1 + n2;
+        return this.n1 + this.n2;
+    }
+
+    public Double subtracao()
+    {
+        return this.n1 - this.n2;
+    }
+
+    public Double multiplicacao()
+    {
+        return this.n1 * this.n2;
+    }
+
+    public Double divisao()
+    {
+        return (this.n2 != 0.0) ? (this.n1 / this.n2) : 0;
     }
 }
