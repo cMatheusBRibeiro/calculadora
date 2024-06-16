@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/application.css">
+    <link rel="stylesheet" href="./style/calculator.css">
+    <script src="./script/calculator.js"></script>
+</head>
+
+<body class="application">
+    <div class="calculator">
+        <div class="calculator__section">
+            <input class="calculator__screen" id="screen" disabled/>
+        </div>
+        <div class="calculator__section">
+            <table class="calculator__buttons">
+                <tbody>
+                    <tr class="calculator__buttons-row">
+                        <td class="calculator__button-cell" colspan="2">
+                            <button class="calculator__button" onclick="clearScreen()">C</button>
+                        </td>
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button" onclick="clearLastValueInsertedInScreen()">←</button>
+                        </td>
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button calculator__operator" onclick="addValueInScreen('÷')">÷</button>
+                        </td>
+                    </tr>
+                    <tr class="calculator__buttons-row">
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button" onclick="addValueInScreen('7')">7</button>
+                        </td>
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button" onclick="addValueInScreen('8')">8</button>
+                        </td>
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button" onclick="addValueInScreen('9')">9</button>
+                        </td>
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button calculator__operator" onclick="addValueInScreen('x')">x</button>
+                        </td>
+                    </tr>
+                    <tr class="calculator__buttons-row">
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button" onclick="addValueInScreen('4')">4</button>
+                        </td>
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button" onclick="addValueInScreen('5')">5</button>
+                        </td>
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button" onclick="addValueInScreen('6')">6</button>
+                        </td>
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button calculator__operator" onclick="addValueInScreen('-')">-</button>
+                        </td>
+                    </tr>
+                    <tr class="calculator__buttons-row">
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button" onclick="addValueInScreen('1')">1</button>
+                        </td>
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button" onclick="addValueInScreen('2')">2</button>
+                        </td>
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button" onclick="addValueInScreen('3')">3</button>
+                        </td>
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button calculator__operator" onclick="addValueInScreen('+')">+</button>
+                        </td>
+                    </tr>
+                    <tr class="calculator__buttons-row">
+                        <td class="calculator__button-cell" colspan="2">
+                            <button class="calculator__button" onclick="addValueInScreen('0')">0</button>
+                        </td>
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button" onclick="addValueInScreen(',')">,</button>
+                        </td>
+                        <td class="calculator__button-cell">
+                            <button class="calculator__button calculator__operator" onclick="calculateValueInScreen()">=</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
