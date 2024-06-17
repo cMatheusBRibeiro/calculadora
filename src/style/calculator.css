@@ -50,14 +50,16 @@
     color: #FFF;
     background: #34495E;
     box-shadow: 0 .25rem #212F3C;
+    top: 0;
+    transition: all .1s linear;
 }
 
 .calculator__button:active {
     top: .25rem;
-    box-shadow: none;
+    box-shadow: 0 0 #212F3C;
 }
 
-.calculator__operator {
+.calculator__button--operator {
     background: #3498DB;
     box-shadow: 0 .25rem #21618C;
 }
