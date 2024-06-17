@@ -12,11 +12,23 @@ function clearLastValueInsertedInScreen() {
 }
 
 function addValueInScreen(value) {
+    emitClickSound();
     if (hasScreenInfinityOrNaN()) {
         valueInScreen = "";
     }
     valueInScreen += value;
     updateScreen();
+}
+
+function emitClickSound() {
+    const audio = createAudioElement();
+    audio.play();
+}
+
+function createAudioElement() {
+    const audio = document.createElement("audio");
+    audio.src = "./assets/sound/mouse-click.mp3";
+    return audio;
 }
 
 function hasScreenInfinityOrNaN() {
