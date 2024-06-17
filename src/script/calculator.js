@@ -2,11 +2,13 @@ let screen = null;
 let valueInScreen = "";
 
 function clearScreen() {
+    emitClickSound();
     valueInScreen = "";
     updateScreen();
 }
 
 function clearLastValueInsertedInScreen() {
+    emitClickSound();
     valueInScreen = valueInScreen.slice(0, valueInScreen.length - 1);
     updateScreen();
 }
