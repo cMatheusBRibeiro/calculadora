@@ -57,6 +57,10 @@ function isScreenNotInitialized() {
 }
 
 function calculateValueInScreen() {
+    emitClickSound();
+    if (isCalcInvalid()) {
+        return;
+    }
     convertValueInScreenForCalculate();
     try {
         valueInScreen = eval(valueInScreen);
@@ -65,6 +69,10 @@ function calculateValueInScreen() {
     }
     convertValueInScreenForPresentation();
     updateScreen();
+}
+
+function isCalcInvalid() {
+    return valueInScreen.length === 0;
 }
 
 function convertValueInScreenForCalculate() {
@@ -84,7 +92,43 @@ function convertValueInScreenForPresentation() {
     valueInScreen = valueInScreen.replace(/\Infinity/g, "Infinito");
 }
 
+function isKeyValidToScreen(key) {
+    const validKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "-", "*", "/", ","];
+    return validKeys.find((k) => k === key);
+}
+
+function translateKey(key) {
+    const translatorKey = {
+        "*": "x",
+        "/": "÷"
+    };
+    return translatorKey[key] || key;
+}
+
+function isKeyBackpace(key) {
+    return key === "Backspace";
+}
+
+function isKeyEnter(key) {
+    return key === "Enter";
+}
+
 window.onload = () => {
     screen = document.getElementById("screen");
     updateScreen();
 };
+
+window.addEventListener("keydown", (event) => {
+    if (isKeyValidToScreen(event.key)) {
+        addValueInScreen(translateKey(event.key));
+        return;
+    }
+    if (isKeyBackpace(event.key)) {
+        clearLastValueInsertedInScreen();
+        return;
+    }
+    if (isKeyEnter(event.key)) {
+        calculateValueInScreen();
+        return;
+    }
+});
